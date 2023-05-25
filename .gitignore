@@ -10,7 +10,7 @@
 
 # production
 /build
-/dist
+/dist/my-app Setup 0.1.0.exe
 
 # misc
 .DS_Store
