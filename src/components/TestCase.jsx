@@ -6,19 +6,6 @@ import { Select } from "antd";
 const { Option } = Select;
 const { Generate_TestSpec } = require("../utils/Gen_TestSpec");
 const { read, readFile, utils } = require("xlsx");
-const fs = require("fs-extra");
-
-const currentWorkingDirectory = process.cwd();
-
-fs.readdir(currentWorkingDirectory, (err, files) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-
-  console.log("Current Working Directory:", currentWorkingDirectory);
-  console.log("Files in the Current Working Directory:", files);
-});
 
 export default function TestCase() {
   let [requirementPath, setRequirementPath] = useState("");

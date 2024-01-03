@@ -9,6 +9,7 @@
   "homepage": ".",
   "main": "public/electron.js",
   "dependencies": {
+    "@electron-forge/cli": "^6.1.1",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
     "@reduxjs/toolkit": "^1.9.1",
@@ -32,7 +33,6 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.2",
-    "react-scripts": "^5.0.1",
     "redux": "^4.2.0",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
@@ -41,12 +41,12 @@
   },
   "scripts": {
     "start-server": "react-scripts start",
-    "start-electron": "electron .",
-    "react-build": "react-scripts build",
-    "build": "yarn react-app-rewired build && electron-builder --publish=always",
+    "start-electron": "electron . --require ./config-overrides.js",
+    "react-build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "postcss src/index.css -o src/tailwind.css && react-scripts build",
     "react-test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
-    "start": "concurrently \"react-app-rewired start\" \"npm run start-electron\""
+    "start": "concurrently \"react-scripts --openssl-legacy-provider start\" \"npm run start-electron\""
   },
   "eslintConfig": {
     "extends": [
@@ -67,12 +67,13 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.12",
-    "electron": "^23.1.1",
+    "autoprefixer": "^10.4.14",
+    "electron": "^23.3.4",
     "electron-builder": "^24.4.0",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.0",
-    "webpack": "^5.83.1"
+    "postcss": "^8.4.24",
+    "postcss-cli": "^10.1.0",
+    "react-scripts": "^4.0.3",
+    "tailwindcss": "^3.3.2"
   },
   "browser": {
     "child_process": false

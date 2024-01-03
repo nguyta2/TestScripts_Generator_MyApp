@@ -10,7 +10,7 @@ export default function Main() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Header />} />
-          <Route path="/testcase" element={<TestCase />} />
+          {/* <Route path="/testcase" element={<TestCase />} /> */}
         </Routes>
       </HashRouter>
     </div>
